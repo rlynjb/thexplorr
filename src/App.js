@@ -4,7 +4,8 @@ import './App.css';
 
 import {
 	Container,
-	Grid
+	Grid,
+	Box
 } from '@material-ui/core';
 
 class App extends Component {
@@ -38,9 +39,10 @@ class App extends Component {
 	    			</Grid>
 
 
-			<Grid container spacing={2}>
+			<Box flexGrow={1}>
 				<h2>Downtown Los Angeles, Cali</h2>
-				<Grid container direction="row">
+				
+				<Grid container>
 					<Grid item s={8} className="city-map">
 						<img src="http://placehold.it/300x150" />
 	    				</Grid>
@@ -52,6 +54,7 @@ class App extends Component {
 	    						<li>sunny/gloomy</li>
 	    					</ul>
 	    				</Grid>
+	
 	    				<Grid item s={4} className="city-commute">
 	    					<ul>
 	    						<li>scooter</li>
@@ -72,7 +75,7 @@ class App extends Component {
 						Day night - bar, club, etc
 	    				</Grid>
 	    			</Grid>
-	    		</Grid>
+	    		</Box
 
 	    </Container>
 
