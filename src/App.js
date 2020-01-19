@@ -43,11 +43,11 @@ class App extends Component {
 				<h2>Downtown Los Angeles, Cali</h2>
 				
 				<Grid container>
-					<Grid item s={8} className="city-map">
+					<Grid item xs={8} className="city-map">
 						<img src="http://placehold.it/300x150" />
 	    				</Grid>
 
-	    				<Grid item s={4} className="city-weather">
+	    				<Grid item xs={4} className="city-weather">
 	    					<ul>
 							<li>temperature</li>
 	    						<li>humidity</li>
@@ -55,7 +55,7 @@ class App extends Component {
 	    					</ul>
 	    				</Grid>
 	
-	    				<Grid item s={4} className="city-commute">
+	    				<Grid item xs={4} className="city-commute">
 	    					<ul>
 	    						<li>scooter</li>
 	    						<li>subway</li>
@@ -63,15 +63,15 @@ class App extends Component {
 	    					</ul>
 	    				</Grid>
 
-	    				<Grid item={12} className="city-food">
+	    				<Grid item xs={12} className="city-food">
 						Food that city is known for
 	    				</Grid>
 
-	    				<Grid item={12} className="city-day">
+	    				<Grid item xs={12} className="city-day">
 						Day life - attractions, things to do, etc
 	    				</Grid>
 
-	    				<Grid item={12} className="city-night">
+	    				<Grid item xs={12} className="city-night">
 						Day night - bar, club, etc
 	    				</Grid>
 	    			</Grid>
