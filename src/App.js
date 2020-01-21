@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { CityCard } from './Card';
 
 import {
   Container,
@@ -20,6 +21,15 @@ import {
   compose,
   withProps
 } from 'recompose'
+
+let data = [
+	{
+		locationName: "Downtown LA, Cali"
+	},
+	{
+		locationName: "Silver Lake, Cali"
+	}
+]
 
 const MyMapComponent = withScriptjs(withGoogleMap((props) =>
   <GoogleMap
@@ -68,45 +78,7 @@ class App extends Component {
             </Grid>
           </Grid>
 
-          <Card>
-          <Box flexGrow={1}>
-            <h2>Downtown Los Angeles, Cali</h2>
-
-            <Grid container>
-              <Grid item xs={8} className="city-map">
-                <img src="http://placehold.it/300x150" />
-              </Grid>
-
-              <Grid item xs={4} className="city-weather">
-                <ul>
-                  <li>temperature</li>
-                  <li>humidity</li>
-                  <li>sunny/gloomy</li>
-                </ul>
-              </Grid>
-
-	    				<Grid item xs={4} className="city-commute">
-	    					<ul>
-	    						<li>scooter</li>
-	    						<li>subway</li>
-	    						<li>uber</li>
-	    					</ul>
-	    				</Grid>
-
-	    				<Grid item xs={12} className="city-food">
-						    Food that city is known for
-	    				</Grid>
-
-	    				<Grid item xs={12} className="city-day">
-						    Day life - attractions, things to do, etc
-	    				</Grid>
-
-	    				<Grid item xs={12} className="city-night">
-						    Day night - bar, club, etc
-	    				</Grid>
-	    			</Grid>
-	    		</Box>
-          </Card>
+					<CityCard />
 
         </Container>
       </div>
