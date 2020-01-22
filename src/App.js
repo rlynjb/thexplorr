@@ -78,7 +78,9 @@ class App extends Component {
             </Grid>
           </Grid>
 
-					<CityCard />
+          {
+            data.map(v => <CityCard name={ v.locationName } />)
+          }
 
         </Container>
       </div>
