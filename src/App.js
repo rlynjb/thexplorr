@@ -22,6 +22,40 @@ import {
   withProps
 } from 'recompose'
 
+import axios from 'axios'
+
+let youtubeKey = 'AIzaSyDXF9OEyFBZ9nf_lr9d9YTKtfF8RfSJoD8'
+
+const youtubeVideosApi = axios.create({
+  baseURL: 'https://www.googleapis.com/youtube/v3/videos',
+  params: {
+    part: 'snippet',
+    maxResults: 5,
+    key: youtubeKey
+  }
+})
+
+const youtubePlaylistItemsApi = axios.create({
+  baseURL: 'https://www.googleapis.com/youtube/v3',
+  params: {
+    part: 'snippet',
+    maxResults: 25,
+    playlistId: 'PLSUVGEEnQgYORQJnC9m-Y_OGOSHLTV4Gy',
+    key: youtubeKey
+  }
+})
+
+
+youtubePlaylistItemsApi.get('/playlistItems')
+  .then(res => {
+    console.log('testing', res)
+  })
+  .catch(err => {
+    console.log('KERRBY', err)
+  })
+
+
+
 let data = [
 	{
 		locationName: "Downtown LA, Cali"
