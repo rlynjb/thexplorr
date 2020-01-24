@@ -7,18 +7,21 @@ import {
 } from '@material-ui/core';
 
 
-const CityCard = (props) => {
+const CityCard = ({ dataObj }) => {
 	return (
     <Card>
-      <Box flexGrow={1}>
-        <h2>{ props.name }</h2>
-        
+      <Box p={4} mb={5} flexGrow={1} textAlign="left">
+        <h2 className="no-margin">{ dataObj.title }</h2>
+        <h6 className="no-margin">{ dataObj.location_info.city + ', ' + dataObj.location_info.state }</h6>
+
+
         <Grid container>
-          <Grid item xs={8} className="city-map">
-            <img src="http://placehold.it/300x150" />
-          </Grid>
-        
-          <Grid item xs={4} className="city-weather">
+          youtube links vids?
+        </Grid>
+
+
+        <Grid container>
+          <Grid item xs={6} className="city-weather">
             <ul>
               <li>temperature</li>
               <li>humidity</li>
@@ -26,7 +29,7 @@ const CityCard = (props) => {
             </ul>
           </Grid>
 
-          <Grid item xs={4} className="city-commute">
+          <Grid item xs={6} className="city-commute">
             <ul>
               <li>scooter</li>
               <li>subway</li>
@@ -34,18 +37,45 @@ const CityCard = (props) => {
             </ul>
           </Grid>
 
-          <Grid item xs={12} className="city-food">
-            Food that city is known for
+          <Grid item xs={12} className="note">
+            Note
+            <p>
+              { dataObj.note }
+            </p>
           </Grid>
 
-          <Grid item xs={12} className="city-day">
-            Day life - attractions, things to do, etc
+          <Grid item xs={12} md={6}>
+            <h6>Day stuff</h6>
+            <Grid container className="city-day">
+              {
+                dataObj.day.map(v =>
+                  <Grid item xs={12}>
+                    <b>{ v.name }</b>
+                    <p>{ v.address }</p>
+                    <p>{ v.note }</p>
+                  </Grid>
+                )
+              }
+            </Grid>
           </Grid>
 
-          <Grid item xs={12} className="city-night">
-            Day night - bar, club, etc
+
+          <Grid item xs={12} md={6}>
+            <h6>Night stuff</h6>
+            <Grid container className="city-night">
+              {
+                dataObj.night.map(v =>
+                  <Grid item xs={12}>
+                    <b>{ v.name }</b>
+                    <p>{ v.address }</p>
+                    <p>{ v.note }</p>
+                  </Grid>
+                )
+              }
+            </Grid>
           </Grid>
         </Grid>
+
       </Box>
     </Card>
   )

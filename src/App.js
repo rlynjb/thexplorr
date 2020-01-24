@@ -24,44 +24,29 @@ import {
 
 import axios from 'axios'
 
-let youtubeKey = 'AIzaSyDXF9OEyFBZ9nf_lr9d9YTKtfF8RfSJoD8'
-
-const youtubeVideosApi = axios.create({
-  baseURL: 'https://www.googleapis.com/youtube/v3/videos',
-  params: {
-    part: 'snippet',
-    maxResults: 5,
-    key: youtubeKey
-  }
-})
-
-const youtubePlaylistItemsApi = axios.create({
-  baseURL: 'https://www.googleapis.com/youtube/v3',
-  params: {
-    part: 'snippet',
-    maxResults: 25,
-    playlistId: 'PLSUVGEEnQgYORQJnC9m-Y_OGOSHLTV4Gy',
-    key: youtubeKey
-  }
-})
-
-
-youtubePlaylistItemsApi.get('/playlistItems')
-  .then(res => {
-    console.log('testing', res)
-  })
-  .catch(err => {
-    console.log('KERRBY', err)
-  })
-
-
-
 let data = [
 	{
-		locationName: "Downtown LA, Cali"
-	},
-	{
-		locationName: "Silver Lake, Cali"
+		title: "Fun times in Downtown LA",
+    note: 'try that bao restaurant joint, not sure where tho',
+    location_info: {
+      city: 'Los Angeles',
+      state: 'California',
+      country: 'US'
+    },
+    day: [
+      {
+        name: 'OUE City Space',
+        address: '',
+        note: 'i wanna try glass slide overlooking the city and checkout their garden beer.'
+      }
+    ],
+    night: [
+      {
+        name: 'Alcatraz Night Tour',
+        address: '',
+        note: 'might not be available during summer'
+      }
+    ]
 	}
 ]
 
@@ -113,7 +98,7 @@ class App extends Component {
           </Grid>
 
           {
-            data.map(v => <CityCard name={ v.locationName } />)
+            data.map(v => <CityCard dataObj={ v }  />)
           }
 
         </Container>
