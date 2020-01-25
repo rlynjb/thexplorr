@@ -3,80 +3,104 @@ import React, { Component } from 'react';
 import {
   Grid,
   Box,
-  Card
+  Card,
+  CardHeader,
+  CardContent,
+  CardActions,
+  Collapse,
+  Typography
 } from '@material-ui/core';
 
 
 const CityCard = ({ dataObj }) => {
 	return (
-    <Card>
-      <Box p={4} mb={5} flexGrow={1} textAlign="left">
-        <h2 className="no-margin">{ dataObj.title }</h2>
-        <h6 className="no-margin">{ dataObj.location_info.city + ', ' + dataObj.location_info.state }</h6>
-
-
-        <Grid container>
-          youtube links vids?
-        </Grid>
-
-
-        <Grid container>
-          <Grid item xs={6} className="city-weather">
-            <ul>
-              <li>temperature</li>
-              <li>humidity</li>
-              <li>sunny/gloomy</li>
-            </ul>
-          </Grid>
-
-          <Grid item xs={6} className="city-commute">
-            <ul>
-              <li>scooter</li>
-              <li>subway</li>
-              <li>uber</li>
-            </ul>
-          </Grid>
-
-          <Grid item xs={12} className="note">
-            Note
-            <p>
-              { dataObj.note }
-            </p>
-          </Grid>
-
-          <Grid item xs={12} md={6}>
-            <h6>Day stuff</h6>
-            <Grid container className="city-day">
-              {
-                dataObj.day.map(v =>
-                  <Grid item xs={12}>
-                    <b>{ v.name }</b>
-                    <p>{ v.address }</p>
-                    <p>{ v.note }</p>
-                  </Grid>
-                )
-              }
-            </Grid>
-          </Grid>
-
-
-          <Grid item xs={12} md={6}>
-            <h6>Night stuff</h6>
-            <Grid container className="city-night">
-              {
-                dataObj.night.map(v =>
-                  <Grid item xs={12}>
-                    <b>{ v.name }</b>
-                    <p>{ v.address }</p>
-                    <p>{ v.note }</p>
-                  </Grid>
-                )
-              }
-            </Grid>
-          </Grid>
-        </Grid>
-
+    <Card variant="outlined">
+      <Box textAlign="left">
+        <CardHeader
+          title={ dataObj.title }
+          subheader={ dataObj.location_info.city + ', ' + dataObj.location_info.state }
+        />
       </Box>
+
+      <CardContent>
+        <Box flexGrow={1} textAlign="left">
+          <Grid container>
+            <Grid item xs={4}>
+              <img src="http://placehold.it/250x140" />
+            </Grid>
+            <Grid item xs={4}>
+              <img src="http://placehold.it/250x140" />
+            </Grid>
+          </Grid>
+
+          <Grid container>
+            <Grid item xs={12} className="note">
+              <Box mt={4} mb={4}>
+                <Typography variant="subtitle2">
+                  Visited on Feb. 28, 2020 from March 3, 2020
+                </Typography>
+
+                <Typography variant="body1">
+                  { dataObj.note }
+                </Typography>
+              </Box>
+            </Grid>
+
+
+            <Grid item xs={12} md={6}>
+              <Box mb={2}>
+                <Typography variant="h6">
+                  Day stuff
+                </Typography>
+
+                <Grid container className="city-day">
+                  { dataObj.day.map(v =>
+                    <Grid item xs={12}>
+                      <Typography variant="subtitle1">
+                        { v.name } | { v.price }
+                      </Typography>
+
+                      <Typography variant="caption" gutterBottom>
+                        { v.address }
+                      </Typography>
+
+                      <Typography variant="body1">
+                        { v.note }
+                      </Typography>
+                    </Grid>
+                  ) }
+                </Grid>
+              </Box>
+            </Grid>
+
+
+            <Grid item xs={12} md={6}>
+              <Typography variant="h6">
+                Night stuff
+              </Typography>
+
+              <Grid container className="city-night">
+                { dataObj.night.map(v =>
+                  <Grid item xs={12}>
+                    <Typography variant="subtitle1">
+                      { v.name } | { v.price }
+                    </Typography>
+
+                    <Typography variant="caption" gutterBottom>
+                      { v.address }
+                    </Typography>
+
+                    <Typography variant="body1">
+                      { v.note }
+                    </Typography>
+                  </Grid>
+                ) }
+              </Grid>
+            </Grid>
+          </Grid>
+
+        </Box>
+      </CardContent>
     </Card>
   )
 }

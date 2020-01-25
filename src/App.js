@@ -36,14 +36,16 @@ let data = [
     day: [
       {
         name: 'OUE City Space',
-        address: '',
+        price: '$',
+        address: '123 Downtown Las Angeles, California 89222',
         note: 'i wanna try glass slide overlooking the city and checkout their garden beer.'
       }
     ],
     night: [
       {
         name: 'Alcatraz Night Tour',
-        address: '',
+        price: '$',
+        address: '123 Downtown Las Angeles, California 89222',
         note: 'might not be available during summer'
       }
     ]
