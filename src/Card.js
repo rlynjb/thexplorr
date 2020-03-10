@@ -75,7 +75,7 @@ const CityCard = ({ dataObj }) => {
             </Grid>
             }
 
-
+            { dataObj.night && 
             <Grid item xs={12} md={6}>
               <Typography variant="h6">
                 Night stuff
@@ -99,6 +99,8 @@ const CityCard = ({ dataObj }) => {
                 ) }
               </Grid>
             </Grid>
+            }
+            
           </Grid>
 
         </Box>
