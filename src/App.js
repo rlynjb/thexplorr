@@ -66,7 +66,7 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
     defaultZoom={8}
     defaultCenter={{ lat: -34.397, lng: 150.644}}
   >
-    { props.isMarkerShown && <Marker name={'Las Vegas, NV'} /> }
+    { props.isMarkerShown && <Marker place={'Las Vegas, NV'} /> }
   </GoogleMap>
 ))
 
