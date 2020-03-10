@@ -47,6 +47,7 @@ const CityCard = ({ dataObj }) => {
             </Grid>
 
 
+            { if (data.Obj.day) { }
             <Grid item xs={12} md={6}>
               <Box mb={2}>
                 <Typography variant="h6">
@@ -72,6 +73,7 @@ const CityCard = ({ dataObj }) => {
                 </Grid>
               </Box>
             </Grid>
+            { } }
 
 
             <Grid item xs={12} md={6}>
