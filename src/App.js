@@ -25,8 +25,8 @@ import {
 import axios from 'axios'
 
 let data = [
-	{
-		title: "Fun times in Downtown LA",
+{
+	title: "Fun times in Downtown LA",
     note: 'try that bao restaurant joint, not sure where tho',
     location_info: {
       city: 'Los Angeles',
@@ -49,7 +49,16 @@ let data = [
         note: 'might not be available during summer'
       }
     ]
-	}
+},
+{
+  title: "Urban Living in Las Vegas",
+  note: "I wanna experience urban living in vegas",
+  location_info: {
+    city: "Las Vegas",
+    state: "Nevada",
+    country: "US"
+  },
+}
 ]
 
 const MyMapComponent = withScriptjs(withGoogleMap((props) =>
