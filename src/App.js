@@ -86,10 +86,7 @@ let geocodeData = [
 
 
 const MyMapComponent = withScriptjs(withGoogleMap((props) =>
-  <GoogleMap
-    defaultZoom={8}
-    defaultCenter={{ lat: -34.397, lng: 150.644}}
-  >
+  <GoogleMap>
     { props.isMarkerShown && <Marker position={{ lat: geocodeData[0].lat, lng: geocodeData[0].lng }} /> }
     { props.isMarkerShown && <Marker position={{ lat: geocodeData[1].lat, lng: geocodeData[1].lng }} /> }
     
