@@ -24,6 +24,10 @@ import {
 
 import axios from 'axios'
 
+/*
+  NOTE:
+  data entered from Create UI (manually enter for now)
+*/
 let data = [
 {
 	title: "Fun times in Downtown LA",
@@ -61,16 +65,40 @@ let data = [
 }
 ]
 
+
+/*
+  NOTE:
+  data fetched from Google map Searchbox.
+  map this data from ui to get lat lng
+*/
+let geocodeData = [
+  {
+    place: 'Las Vegas, NV US',
+    lat: 36.169941,
+    lng: -115.139832
+  },
+  {
+    place: 'Los Angeles, Ca US',
+    lat: 34.052235,
+    lng: -118.243683
+  },
+]
+
+
 const MyMapComponent = withScriptjs(withGoogleMap((props) =>
   <GoogleMap
     defaultZoom={8}
     defaultCenter={{ lat: -34.397, lng: 150.644}}
   >
-    { props.isMarkerShown && <Marker place={'Las Vegas, NV'} /> }
+    { props.isMarkerShown && <Marker position={{ lat: geocodeData[0].lat, lng: geocodeData[0].lng }} /> }
+    { props.isMarkerShown && <Marker position={{ lat: geocodeData[1].lat, lng: geocodeData[1].lng }} /> }
+    
   </GoogleMap>
 ))
 
 let key = "AIzaSyDzHSlIFpZJPIIjCw_BqfV0esv6JXYdTzc"
+
+
 
 class App extends Component {
   render() {
