@@ -90,8 +90,16 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
     defaultZoom={4}
     defaultCenter={{ lat: 37.090240, lng: -95.712891 }}
   >
-    { props.isMarkerShown && <Marker position={{ lat: geocodeData[0].lat, lng: geocodeData[0].lng }} /> }
-    { props.isMarkerShown && <Marker position={{ lat: geocodeData[1].lat, lng: geocodeData[1].lng }} /> }
+    { props.isMarkerShown &&
+      <Marker position={{ lat: geocodeData[0].lat, lng: geocodeData[0].lng }} 
+        onClick={ App.displayResults('Las Vegas') }
+      />
+    }
+    { props.isMarkerShown &&
+      <Marker position={{ lat: geocodeData[1].lat, lng: geocodeData[1].lng }}
+        onClick={ App.displayResults('Los Angeles') }
+      />
+    }
     
   </GoogleMap>
 ))
@@ -101,6 +109,22 @@ let key = "AIzaSyDzHSlIFpZJPIIjCw_BqfV0esv6JXYdTzc"
 
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    
+    this.state = {
+      selectedPlace: '',
+      results: [],
+    }
+  
+    // this binding is necessary to make `this` work in the callback
+    this.displayResults = this.displayResults.bind(this)
+  }
+
+  displayResults(val) {
+    console.log('displayResults: ', val)
+  }
+
   render() {
     return (
       <div className="App">
