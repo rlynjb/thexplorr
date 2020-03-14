@@ -92,12 +92,12 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
   >
     { props.isMarkerShown &&
       <Marker position={{ lat: geocodeData[0].lat, lng: geocodeData[0].lng }} 
-        onClick={ App.displayResults('Las Vegas') }
+        onClick={ props.handleResults('Las Vegas') }
       />
     }
     { props.isMarkerShown &&
       <Marker position={{ lat: geocodeData[1].lat, lng: geocodeData[1].lng }}
-        onClick={ App.displayResults('Los Angeles') }
+        onClick={ props.handleResults('Los Angeles') }
       />
     }
     
@@ -139,6 +139,7 @@ class App extends Component {
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={<div style={{ height: `400px` }} />}
             mapElement={<div style={{ height: `100%` }} />}
+            handleResults={ this.displayResults }
           />
         </div>
 
